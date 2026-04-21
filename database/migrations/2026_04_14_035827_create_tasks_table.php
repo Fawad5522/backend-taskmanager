@@ -17,6 +17,7 @@ return new class extends Migration
         $table->text('description')->nullable(); // Task ki detail
         $table->string('status')->default('pending'); // Pending ya Completed
         $table->timestamps(); // Kab bana aur kab update hua
+        $table->softDeletes();
     });
 }
 

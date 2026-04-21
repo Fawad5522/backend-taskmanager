@@ -9,4 +9,10 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 
+// New path for Recycle bin
+Route::get('/tasks/trashed', [App\Http\Controllers\TaskController::class, 'trashed']);
+Route::put('/tasks/{id}/restore', [App\Http\Controllers\TaskController::class, 'restore']);
+Route::delete('/tasks/{id}/force', [App\Http\Controllers\TaskController::class, 'forceDelete']);
+
+
 Route::apiResource('tasks', TaskController::class);
